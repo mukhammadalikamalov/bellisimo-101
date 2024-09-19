@@ -210,8 +210,11 @@ const Index = () => {
             {...register("category", { required: "Category is required" })}
             error={!!errors.category}
             displayEmpty
-            renderValue={(selected) => (selected ? selected : "Select a category")}
+            defaultValue="" // Ensure default value is set
           >
+            <MenuItem value="" disabled>
+              Select a category
+            </MenuItem>
             {categories.map((cat) => (
               <MenuItem key={cat.value} value={cat.value}>
                 {cat.label}
